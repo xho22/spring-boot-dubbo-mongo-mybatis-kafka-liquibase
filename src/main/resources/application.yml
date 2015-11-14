@@ -35,3 +35,9 @@ zookeeper:
 #mq
 mq:
   enabled: false
+#liquibase
+liquibase:
+  enabled: true
+#graceful shutdown
+management.port: 8181
+endpoints.shutdown.enabled: true

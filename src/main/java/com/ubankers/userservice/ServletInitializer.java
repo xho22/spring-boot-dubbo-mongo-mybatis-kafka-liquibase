@@ -12,7 +12,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-
+/**
+ * 这个类用于处理http请求的配置
+ * @author yuanxiang
+ * 2015年11月14日
+ */
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
@@ -22,7 +26,10 @@ public class ServletInitializer extends SpringBootServletInitializer {
 	protected SpringApplicationBuilder configure( SpringApplicationBuilder application ) {
 		return application.sources(Application.class);
 	}
-	
+	/**
+	 * http编码
+	 * @return
+	 */
 	@Bean
     public Filter characterEncodingFilter() {
         CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();

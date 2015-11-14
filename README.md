@@ -34,4 +34,4 @@ dubbo 同样的，为了移植方便些，用了xml
 
 9 graceful shutdown resolved 
 
-curl -X POST http://127.0.0.1:22006/shutdown 
+curl -X POST http://127.0.0.1:8181/shutdown 

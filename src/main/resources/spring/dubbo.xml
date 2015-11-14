@@ -9,7 +9,7 @@
 
 	<dubbo:application name="userservice_dubbo_app" />
 
-	<dubbo:registry address="zookeeper://my-vm-ip:2181" id="zk"/>
+	<dubbo:registry address="zookeeper://${zookeeper.host}:${zookeeper.port}" id="zk"/>
 	<!-- 3种协议 -->
 	<dubbo:protocol name="dubbo" port="11000"/>
 	<dubbo:protocol name="jsonrpc" port="8080" server="jetty" />
