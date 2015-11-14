@@ -1,35 +1,37 @@
 ##要开始使用spring boot了，网上例子很杂乱，我一个一个找并集成，踩了很多坑，在这里把我做的一些集成分享一下
 
-##启动方法 运行com.ubankers.userservice.Application即可
+##启动方法 
+1. 直接执行com.ubankers.userservice.Application即可
+2. ./user.sh start
 
 ###spring boot 需要解决的问题列表
 
-1 mybatis 解决
+1 mybatis resolved
 
 mybatis我还是用了xml的配置方式，为了移植方便些
 
-2 dubbo 解决
+2 dubbo resolved
 
 dubbo 同样的，为了移植方便些，用了xml
 
-3 slf4j 解决
+3 slf4j resolved
 
 
-4 kafka 解决
+4 kafka resolved
 
 
-5 liquibase 解决
+5 liquibase resolved
 
 
-6 junit 解决
+6 junit resolved
 
 
-7 打包脚本 解决
+7 package script resolved
 
 
-8 mongodb 解决
+8 mongodb resolved
 
 
-9 优雅关机 解决 
+9 graceful shutdown resolved 
 
-运行管理端口  http://127.0.0.1:22006/shutdown 即可
+curl -X POST http://127.0.0.1:22006/shutdown 
