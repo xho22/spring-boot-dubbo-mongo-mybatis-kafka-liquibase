@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: yuanxiang
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: age
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: yuanxiang
+      changes:
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: age
+                  value: 26
+              - column:
+                  name: name
+                  value: boot1
+  - changeSet:
+      id: 3
+      author: yuanxiang
+      changes:
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: age
+                  value: 27
+              - column:
+                  name: name
+                  value: boot2

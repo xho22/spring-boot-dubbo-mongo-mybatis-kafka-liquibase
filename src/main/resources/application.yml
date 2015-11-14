@@ -1,0 +1,37 @@
+#web
+server.port: 10000
+#db
+jdbc:
+  driver: com.mysql.jdbc.Driver
+  url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;charaterEncoding=utf-8
+  username: root
+  password: root
+  maxActive: 3
+  maxIdle: 30
+  minIdle: 5
+  maxWait: 3000
+  validationQuery: /* ping */ select 1
+  testOnBorrow: false
+  testOnReturn: false
+  testWhileIdle: true
+  timeBetweenEvictionRunsMillis: 60000
+  minEvictableIdleTimeMillis: -1
+#mongo
+spring.data.mongodb.host: 127.0.0.1
+spring.data.mongodb.port: 27017
+spring.data.mongodb.database: user
+#kafka
+kafka:
+  broker:
+    address: 127.0.0.1:9092
+  zookeeper:
+    connect: 127.0.0.1:2181
+  topic: test1.topic
+  messageKey: test1.key
+#zookeeper:
+zookeeper:
+  host: 127.0.0.1
+  port: 2181
+#mq
+mq:
+  enabled: false

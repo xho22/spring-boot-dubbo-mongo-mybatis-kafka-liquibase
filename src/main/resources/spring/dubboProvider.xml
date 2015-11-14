@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+           http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+	default-lazy-init="true">
+
+	<dubbo:application name="userservice_dubbo_app" />
+
+	<dubbo:registry address="zookeeper://my-vm-ip:2181" id="zk"/>
+	<!-- 3种协议 -->
+	<dubbo:protocol name="dubbo" port="11000"/>
+	<dubbo:protocol name="jsonrpc" port="8080" server="jetty" />
+	
+	<!-- <bean id="demoService" class="com.rongan.springboot.dubbo.service.DemoServiceImpl"/> -->
+
+	<dubbo:service interface="com.ubankers.userservice.business.service.IUserService" version="1.0.0" 
+				   protocol="dubbo,jsonrpc" ref="userService" registry="zk"/>
+</beans> 
