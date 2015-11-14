@@ -184,7 +184,6 @@
       		<scope>compile</scope>
       		<version>${spring.boot.version}</version>
     	</dependency>
-		<!-- spring-integration --> 
 		<dependency>
       		<groupId>org.springframework.integration</groupId>
       		<artifactId>spring-integration-kafka</artifactId>
@@ -205,7 +204,11 @@
       		</exclusions>
       		<scope>compile</scope>
     	</dependency>
-
+		<!-- <dependency>
+			<groupId>org.springframework</groupId>
+		    <artifactId>spring-messaging</artifactId>
+		    <version>4.1.7.RELEASE</version>
+		</dependency> -->
 		<!-- test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -218,8 +221,8 @@
 	<developers>
 		<developer>
 			<id>1</id>
-			<name>yuanxiang</name>
-			<email>yuanxiang[AT]ubankers[DOT]com</email>
+			<name>xho22</name>
+			<email>yuanxiang86[AT]163[DOT]com</email>
 			<organization>ubankers</organization>
 		</developer>
 	</developers>
@@ -236,29 +239,97 @@
 					<showWarnings>true</showWarnings>
 				</configuration>
 			</plugin>
-
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
+			
+			<!-- Package as an executable JAR -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
 				<configuration>
+					<finalName>${project.artifactId}</finalName>
 					<archive>
+						<addMavenDescriptor>true</addMavenDescriptor>
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>com.ubankers.userservice.Application</mainClass>
+							<mainClass>com.ubankers.user.Application</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<finalName>${project.artifactId}</finalName>
+					<descriptors>
+						<descriptor>src/main/assembly/package.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>deploy-jar</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy-file</goal>
+						</goals>
+						<configuration>
+							<repositoryId>${project.distributionManagement.snapshotRepository.id}</repositoryId>
+							<url>${project.distributionManagement.snapshotRepository.url}</url>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>${project.artifactId}</artifactId>
+							<version>${project.version}</version>
+							<file>
+								${project.build.directory}/${project.artifactId}.jar
+							</file>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<finalName>${project.artifactId}</finalName>
+					<attach>true</attach>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
 		</plugins>
 	</build>
-
 
 </project>
