@@ -184,6 +184,7 @@
       		<scope>compile</scope>
       		<version>${spring.boot.version}</version>
     	</dependency>
+		<!-- spring-integration --> 
 		<dependency>
       		<groupId>org.springframework.integration</groupId>
       		<artifactId>spring-integration-kafka</artifactId>
@@ -204,11 +205,7 @@
       		</exclusions>
       		<scope>compile</scope>
     	</dependency>
-		<!-- <dependency>
-			<groupId>org.springframework</groupId>
-		    <artifactId>spring-messaging</artifactId>
-		    <version>4.1.7.RELEASE</version>
-		</dependency> -->
+
 		<!-- test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -259,56 +256,9 @@
 				</configuration>
 			</plugin>
 
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId> 
-				</plugin> -->
 
 		</plugins>
 	</build>
 
-	<distributionManagement>
-		<repository>
-			<id>raRelease</id>
-			<name>rongan project releases</name>
-			<url>http://192.168.0.222:8081/artifactory/libs-release-local</url>
-		</repository>
-		<snapshotRepository>
-			<id>raSnapshot</id>
-			<name>rongan project snapshots</name>
-			<url>http://192.168.0.222:8081/artifactory/libs-snapshot-local</url>
-		</snapshotRepository>
-	</distributionManagement>
-
-	<repositories>
-		<repository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>central</id>
-			<name>libs-release</name>
-			<url>http://192.168.0.222:8081/artifactory/libs-release</url>
-		</repository>
-		<repository>
-			<snapshots />
-			<id>snapshots</id>
-			<name>libs-snapshot</name>
-			<url>http://192.168.0.222:8081/artifactory/libs-snapshot</url>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>central</id>
-			<name>plugins-release</name>
-			<url>http://192.168.0.222:8081/artifactory/plugins-release</url>
-		</pluginRepository>
-		<pluginRepository>
-			<snapshots />
-			<id>snapshots</id>
-			<name>plugins-snapshot</name>
-			<url>http://192.168.0.222:8081/artifactory/plugins-snapshot</url>
-		</pluginRepository>
-	</pluginRepositories>
 
 </project>
