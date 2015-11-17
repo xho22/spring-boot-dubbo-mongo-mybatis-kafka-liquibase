@@ -1,4 +1,4 @@
-package com.ubankers.userservice.configuration.mybatis;
+package com.ubankers.user.configuration.mybatis;
 
 import java.io.IOException;
 
@@ -22,7 +22,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.util.ClassUtils;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.ubankers.userservice.configuration.db.JdbcConnectionSettings;
+import com.ubankers.user.configuration.db.JdbcConnectionSettings;
 
 /*
  * @see http://mybatis.github.io/spring/mappers.html
@@ -35,7 +35,10 @@ public class MybatisConfig {
 	/**映射文件包*/
 	private static final String SQLMAP_PACKAGE = "com.ubankers.**.sqlmap";
 	/**类转换包*/
-	private static final String TYPEHANDLER_PACKAGE = "com.ubankers.userservice.configuration.mybatis.typehandler";
+	private static final String TYPE_HANDLERS_PACKAGE = "com.ubankers.user.**.typehandler";
+	/**别名pojo类包*/
+	private static final String TYPE_ALIASES_PACKAGE = "com.ubankers.user.**.typealiase";
+	
 	@Autowired
 	private JdbcConnectionSettings jdbcConnectionSettings;
 
@@ -75,7 +78,8 @@ public class MybatisConfig {
 		sqlSessionFactory.setConfigLocation(new ClassPathResource("mybatis-config.xml"));
 		sqlSessionFactory.setFailFast(true);
 		sqlSessionFactory.setMapperLocations(getResource(SQLMAP_PACKAGE, "**/*.xml"));
-		sqlSessionFactory.setTypeHandlersPackage(TYPEHANDLER_PACKAGE);
+		sqlSessionFactory.setTypeHandlersPackage(TYPE_HANDLERS_PACKAGE);
+		sqlSessionFactory.setTypeAliasesPackage(TYPE_ALIASES_PACKAGE);
 		return sqlSessionFactory.getObject();
 	}
 
