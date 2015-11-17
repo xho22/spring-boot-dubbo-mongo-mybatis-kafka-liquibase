@@ -14,7 +14,7 @@ import com.ubankers.userservice.business.domain.User;
 import com.ubankers.userservice.business.domain.UserMongo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Application.class,locations = {"classpath*:/spring/*.xml"})
+@SpringApplicationConfiguration(classes = Application.class)
 @WebIntegrationTest({ "server.port:0" })
 public class UserServiceTest {
 
