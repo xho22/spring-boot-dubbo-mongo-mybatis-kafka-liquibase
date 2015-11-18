@@ -1,4 +1,4 @@
-package com.ubankers.user.configuration.mybatis;
+package com.ubankers.userservice.configuration.mybatis;
 
 import java.io.IOException;
 
@@ -22,7 +22,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.util.ClassUtils;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.ubankers.user.configuration.db.JdbcConnectionSettings;
+import com.ubankers.userservice.configuration.db.JdbcConnectionSettings;
 
 /*
  * @see http://mybatis.github.io/spring/mappers.html
