@@ -73,7 +73,7 @@
 			</exclusions>
 		</dependency>
 		<!-- jsonrpc for dubbo -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.ofpay</groupId>
 			<artifactId>dubbo-rpc-jsonrpc</artifactId>
 			<version>${dubbo.jsonrpc.version}</version>
@@ -94,7 +94,7 @@
 					<artifactId>servlet-api</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
+		</dependency> -->
 		<!-- zookeeper -->
 		<dependency>
 			<groupId>com.101tec</groupId>

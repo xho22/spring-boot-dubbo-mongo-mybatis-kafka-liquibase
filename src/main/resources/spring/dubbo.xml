@@ -10,12 +10,12 @@
 	<dubbo:application name="userservice_dubbo_app" />
 
 	<dubbo:registry address="zookeeper://${zookeeper.host}:${zookeeper.port}" id="zk"/>
-	<!-- 3种协议 -->
+	<!-- dubbo协议 -->
 	<dubbo:protocol name="dubbo" port="11000"/>
-	<dubbo:protocol name="jsonrpc" port="8080" server="jetty" />
+	<!-- <dubbo:protocol name="jsonrpc" port="8080" server="jetty" /> -->
 	
 	<!-- <bean id="demoService" class="com.rongan.springboot.dubbo.service.DemoServiceImpl"/> -->
 
 	<dubbo:service interface="com.ubankers.userservice.business.service.IUserService" version="1.0.0" 
-				   protocol="dubbo,jsonrpc" ref="userService" registry="zk"/>
+				   protocol="dubbo" ref="userService" registry="zk"/>
 </beans> 
