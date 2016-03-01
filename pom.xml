@@ -252,7 +252,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>com.ubankers.user.Application</mainClass>
+							<mainClass>com.ubankers.userservice.Application</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
